@@ -126,56 +126,39 @@
 //   },
 // });
 // export default Login;
-import React, { PropsWithChildren } from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import Signup from "./Signup";
-import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-type LoginProps = PropsWithChildren<{
+type LoginProps = {
+  navigation: any;
   onLogin: () => void;
-  onSignup: () => void;
-}>;
-
-const Login = ({ onLogin, onSignup }: LoginProps): React.JSX.Element => {
-  const handleGoogleLogin = () => {
-    console.log("Google Login Pressed");
-  };
   
 
-  const handleLogin = () => {
-    onLogin();
-  };
+};
 
+
+
+const Login = ({ navigation, onLogin }: LoginProps) => {
+  console.log('jxsbxbqsx')
 
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome Back!</Text>
       <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-          placeholderTextColor="#aaa"
-        />
+        <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#aaa" />
         <TextInput
           style={styles.input}
           placeholder="Password"
           placeholderTextColor="#aaa"
           secureTextEntry={true}
         />
-        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.loginButtonText}>Login</Text>
+        <TouchableOpacity style={styles.loginButton} onPress={onLogin}>
+          <Text style={styles.loginButtonText} >Login</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.orText}>OR</Text>
-      <TouchableOpacity style={styles.googleButton} onPress={handleGoogleLogin}>
+      <TouchableOpacity style={styles.googleButton} onPress={() => console.log("Google Login Pressed")}>
         <Image
           source={{
             uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png",
@@ -184,12 +167,16 @@ const Login = ({ onLogin, onSignup }: LoginProps): React.JSX.Element => {
         />
         <Text style={styles.googleButtonText}>Login with Google</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={onSignup}>
-        <Text style={styles.signupText} >Don't have an account? Signup</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+        <Text style={styles.signupText}>Don't have an account? Signup</Text>
       </TouchableOpacity>
     </View>
   );
 };
+
+// Add the styles here...
+
+
 
 const styles = StyleSheet.create({
   container: {

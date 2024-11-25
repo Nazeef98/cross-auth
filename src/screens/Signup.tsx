@@ -6,13 +6,15 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 type SignupProps = PropsWithChildren<{
   onSignupComplete: () => void;
 }>;
 
-
 const Signup = ({ onSignupComplete }: SignupProps): React.JSX.Element => {
+  const navigation = useNavigation(); // Use React Navigation's hook
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,9 +26,10 @@ const Signup = ({ onSignupComplete }: SignupProps): React.JSX.Element => {
       return;
     }
     console.log("Signup Successful", { name, email });
-    onSignupComplete();
+    onSignupComplete(); // Call the callback if provided
   };
 
+ 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Create an Account</Text>
@@ -75,6 +78,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#f8f9fa",
     padding: 20,
+  },
+  signupText: {
+    fontSize: 16,
+    color: "#007bff",
+    marginTop: 20,
   },
   title: {
     fontSize: 28,
