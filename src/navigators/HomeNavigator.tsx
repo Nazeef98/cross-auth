@@ -11,6 +11,8 @@ import Jobs from '../screens/Jobs.tsx';
 import Dm from '../screens/Dm.tsx';
 import Message from '../screens/Message.tsx';
 import Profile from '../screens/Profile.tsx';
+import Settings from '../screens/Settings.tsx';
+import Logout from '../screens/Logout.tsx';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,6 +27,10 @@ const HomeNavigator = (): React.JSX.Element => {
       <Drawer.Screen name="Course" component={Course} />
       <Drawer.Screen name="Jobs" component={Jobs} />
       <Drawer.Screen name="Dm's" component={Dm} />
+      <Drawer.Screen name="Settings" component={Settings} />
+      <Drawer.Screen name="Logout" component={Logout} />
+
+
 
 
 
