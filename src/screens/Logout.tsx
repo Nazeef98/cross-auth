@@ -1,32 +1,25 @@
-// LogoutScreen.js
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Button } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const Logout = ({ navigation }) => {
+// Define the type for your stack navigator
+type RootStackParamList = {
+    Login: undefined; // Add all your other screens here if needed
+    Logout: undefined;
+};
+
+type Props = NativeStackScreenProps<RootStackParamList, 'Logout'>;
+
+const Logout: React.FC<Props> = ({ navigation }) => {
     const handleLogout = () => {
-        // Perform any logout operations here (e.g., clear tokens)
-        // Then navigate to the Login screen
         navigation.navigate('Login');
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>You have been logged out.</Text>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Button title="Go to Login" onPress={handleLogout} />
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    text: {
-        fontSize: 18,
-        marginBottom: 20,
-    },
-});
 
 export default Logout;

@@ -20,23 +20,16 @@ const HomeNavigator = (): React.JSX.Element => {
   return (
     <Drawer.Navigator>
       <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Profile" component={Profile} /> 
-      <Drawer.Screen name="About" component={About} />
       <Drawer.Screen name="Network" component={Network} />
       <Drawer.Screen name="Accomodation" component={Accomodation} />
       <Drawer.Screen name="Course" component={Course} />
       <Drawer.Screen name="Jobs" component={Jobs} />
       <Drawer.Screen name="Dm's" component={Dm} />
       <Drawer.Screen name="Settings" component={Settings} />
+      <Drawer.Screen name="Profile" component={Profile} /> 
+      <Drawer.Screen name="About" component={About} />
       <Drawer.Screen name="Logout" component={Logout} />
-
-
-
-
-
-
-
-    </Drawer.Navigator>
+</Drawer.Navigator>
   )
 }
 export default HomeNavigator;

@@ -7,6 +7,7 @@ import Splash from './screens/Splash.tsx';
 import Onboarding from './screens/Onboarding.tsx';
 import Login from './screens/Login.tsx';
 import Signup from './screens/Signup.tsx';
+import AuthNavigator from "./navigators/AuthNavigator.tsx";
 
 const Stack = createStackNavigator();
 
@@ -44,25 +45,11 @@ const Main = (): React.JSX.Element => {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName={isAuthenticated ? 'Login' : 'Login'} // Corrected logic
+          initialRouteName={isAuthenticated ? 'Home' : 'Auth'} // Corrected logic
         >
-          {/* Login Screen
-          <Stack.Screen name="Login" options={{ headerShown: false }}>
-            {props => <Login {...props} onLogin={handleLogin} />}
-          </Stack.Screen> */}
-
-          {/* Signup Screen */}
-          <Stack.Screen name="Signup" options={{ headerShown: false }}>
-            {props => <Signup {...props} onSignup={handleSignup} />}
-          </Stack.Screen>
-
-          <Stack.Screen 
-            name="Login"
-            component={HomeNavigator}
-            options={{ headerShown: false}}
-      
+          <Stack.Screen name="Home" component={HomeNavigator} options={{ headerShown: false}}
           />
-
+          <Stack.Screen name="Auth" component={AuthNavigator} options={{headerShown: false}} />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>

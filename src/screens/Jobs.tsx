@@ -9,6 +9,8 @@ import {
   Modal,
 } from "react-native";
 
+
+
 // JobCard Component
 const JobCard = ({ title, description, location, startDate, pay }) => {
   const [modalVisible, setModalVisible] = useState(false);
