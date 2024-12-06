@@ -73,6 +73,8 @@ const Login = ({ navigation }: LoginProps) => {
   }
   const handleLoginError = (error: any) => {
     console.log(error);
+    Alert.alert("Login Error", "Unable to connect to the server. Please try again later.");
+
   }
 
   // Handle Signup
@@ -112,18 +114,6 @@ const Login = ({ navigation }: LoginProps) => {
           </TouchableOpacity>
         </View>
         <Text style={styles.orText}>OR</Text>
-        <TouchableOpacity
-            style={styles.googleButton}
-            onPress={() => console.log("Google Login Pressed")}
-        >
-          <Image
-              source={{
-                uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png",
-              }}
-              style={styles.googleIcon}
-          />
-          <Text style={styles.googleButtonText}>Login with Google</Text>
-        </TouchableOpacity>
         <TouchableOpacity onPress={onSignup}>
           <Text style={styles.signupText}>Don't have an account? Signup</Text>
         </TouchableOpacity>

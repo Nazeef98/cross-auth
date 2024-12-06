@@ -110,6 +110,8 @@ const Signup = ({ navigation }: SignupProps): React.JSX.Element => {
   }
   const handleSignupError = (error: any) => {
     console.log("Signup failed");
+    Alert.alert("Signup Error", "Unable to connect to the server. Please try again later.");
+
   }
   return (
       <View style={styles.container}>
